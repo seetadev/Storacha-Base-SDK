@@ -78,7 +78,12 @@ export function useToken() {
       const a = (addr as `0x${string}`) || (address as `0x${string}`);
       if (!a) throw new Error("no_address");
       if (!publicClient) throw new Error("public_client_missing");
-      const contract = getTokenContract(publicClient);
+      const contract = getTokenContract(publicClient as any) as unknown as {
+        read: {
+          balanceOf: (args: [`0x${string}`]) => Promise<bigint>;
+          decimals: () => Promise<bigint>;
+        };
+      };      
       const raw: bigint = await contract.read.balanceOf([a]);
       const decimals = Number(await contract.read.decimals().catch(() => BigInt(18)));
       const formatted = formatUnits(raw, decimals);

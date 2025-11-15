@@ -25,10 +25,10 @@ export async function mintTokenDirect(opts: {
   const amountStr = opts.amount;
   const decimals = Number(opts.decimals ?? DEFAULT_DECIMALS);
 
-  if (!ethers.utils.isAddress(to)) throw new Error("Invalid recipient address");
+  if (!ethers.isAddress(to)) throw new Error("Invalid recipient address");
   if (Number.isNaN(Number(amountStr))) throw new Error("Invalid amount");
 
-  const parsed = ethers.utils.parseUnits(amountStr, decimals);
+  const parsed = ethers.parseUnits(amountStr, decimals);
   const wallet = getOwnerWallet(RPC_URL);
 
   const abi = [

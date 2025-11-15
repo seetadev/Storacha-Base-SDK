@@ -6,7 +6,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 import { useAccount, useBalance } from "wagmi";
-import WalletConnect from "@/components/WalletConnect";
 import GaslessPayment from "@/components/GaslessPayment";
 import { ChatInterface } from "@/components/chat-interface";
 import MintPanel from "@/components/MintPanel";
@@ -14,15 +13,6 @@ import CircleDeposit from "@/components/CircleDeposit";
 import CircleWithdraw from "@/components/CircleWithdraw";
 import { CheckCircle, Lock } from "lucide-react";
 import { CONTRACTS } from "@/lib/utils";
-
-/**
- * Dashboard page:
- * - Overview contains all metrics (balances, totals, tier, staked FST)
- * - Sidebar navigation handled by LayoutDashboard (links with query param `view`)
- * - view is read from URL query `view` (so nav links work and deep-link)
- *
- * Remove additional components from main area — only render those views on demand.
- */
 
 export default function DashboardPage() {
   const searchParams = useSearchParams();
