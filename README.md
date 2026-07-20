@@ -1,6 +1,6 @@
 # Storacha Base SDK
 
-**Storacha Base SDK** provides a unified interface for interacting with Storacha’s decentralized storage APIs and payment systems — serving as the **foundation layer** for all Storacha blockchain integrations (Solana, Filecoin, and beyond).
+**Storacha Base SDK** provides a unified interface for interacting with Storacha’s decentralized storage APIs and payment systems, serving as the **foundation layer** for all Storacha blockchain integrations (Solana, Filecoin, and beyond).
 It offers essential utilities, common data models, and standardized request/response handling used across all Storacha SDKs.
 
 ## Features
